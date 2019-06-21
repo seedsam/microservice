@@ -22,6 +22,8 @@
 		<module>../scanner</module>
 		<module>../handler</module>
 		<module>../inputfile</module>
+		<module>../eureka_server_8761</module>
+		<module>../config_server_8762</module>
 	</modules>
 
 	<properties>
