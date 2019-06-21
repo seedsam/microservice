@@ -29,13 +29,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 @Component
 public class ScheduledTasks {
 
 	@Autowired
-	private RestTemplate restTemplate;
+	private InputFileService service;
 
 	private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
 
@@ -57,6 +56,7 @@ public class ScheduledTasks {
 					log.info("文件格式正常");
 					// 创建文件对象
 					create(file);
+					log.info("文件保存成功================");
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -67,40 +67,16 @@ public class ScheduledTasks {
 	}
 
 	private void create(File file) {
-		FileVo fileVo = convert(file);
-		restTemplate.postForObject("http://localhost:8083/input", fileVo, String.class);
+		InputFileVo fileVo = convert(file);
+		service.create(fileVo);
+
 	}
 
-	private FileVo convert(File file) {
-		FileVo fileVo = new FileVo();
+	private InputFileVo convert(File file) {
+		InputFileVo fileVo = new InputFileVo();
 		fileVo.setName(file.getName());
 		fileVo.setPath(file.getAbsolutePath());
 		return fileVo;
-
-	}
-
-	class FileVo {
-
-//		private static final long serialVersionUID = 1L;
-
-		private String name;
-		private String path;
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String getPath() {
-			return path;
-		}
-
-		public void setPath(String path) {
-			this.path = path;
-		}
 
 	}
 

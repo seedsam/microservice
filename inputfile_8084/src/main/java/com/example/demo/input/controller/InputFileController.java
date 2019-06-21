@@ -27,7 +27,7 @@ public class InputFileController {
 
 	@PostMapping
 	public void create(@RequestBody InputFileVo inputFileVo) {
-		logger.info("测试负载均衡：调用的服务端口是：8083");
+		logger.info("测试负载均衡：调用的服务端口是：8084");
 		service.createInputFile(inputFileVo);
 	}
 

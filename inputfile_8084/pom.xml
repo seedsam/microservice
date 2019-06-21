@@ -11,10 +11,20 @@
 		<relativePath>../parent</relativePath>
 	</parent>
 
-	<artifactId>handler</artifactId>
+	<artifactId>inputfile</artifactId>
+	<name>inputfile</name>
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
 		<!-- eureka -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -23,11 +33,6 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<!-- Feign -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 
 		<dependency>
