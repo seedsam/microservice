@@ -20,7 +20,12 @@ public class InputFileController {
 	@Autowired
 	private InputFileService service;
 
-	@GetMapping
+	@GetMapping("/")
+	public String home() {
+		return "调用inputfile服务，端口是8083";
+	}
+
+	@GetMapping("/{id}")
 	public InputFile get(Integer id) {
 		return service.getInputFile(id);
 	}
