@@ -25,6 +25,7 @@
 		<module>../eureka_server_8761</module>
 		<module>../config_server_8762</module>
 		<module>../zuul_5000</module>
+		<module>../admin_server_8090</module>
 	</modules>
 
 	<properties>
