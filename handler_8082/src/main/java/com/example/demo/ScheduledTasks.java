@@ -40,7 +40,7 @@ public class ScheduledTasks {
 
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-	@Scheduled(fixedRate = 5000)
+	@Scheduled(fixedRate = 60000)
 	public void reportCurrentTime() {
 		log.info("The time is now {}", dateFormat.format(new Date()));
 		// 扫文件
@@ -69,7 +69,6 @@ public class ScheduledTasks {
 	private void create(File file) {
 		InputFileVo fileVo = convert(file);
 		service.create(fileVo);
-
 	}
 
 	private InputFileVo convert(File file) {
@@ -77,7 +76,6 @@ public class ScheduledTasks {
 		fileVo.setName(file.getName());
 		fileVo.setPath(file.getAbsolutePath());
 		return fileVo;
-
 	}
 
 }
